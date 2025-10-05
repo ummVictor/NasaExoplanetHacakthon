@@ -15,7 +15,7 @@ from pathlib import Path
 from collections import defaultdict
 
 # ---------- INPUT / OUTPUT PATHS ----------
-BASE = Path(r"C:\Users\victo\OneDrive\Desktop\Git\NasaExoplanetHacakthon")
+BASE = Path(r"C:\Users\victo\OneDrive\Desktop\Git\NasaExoplanetHacakthon\dataset")
 KEPLER_PATH = BASE / "cumulative_2025.10.04_12.55.45.csv"
 K2_PATH     = BASE / "k2pandc_2025.10.04_12.56.09.csv"
 TOI_PATH    = BASE / "TOI_2025.10.04_12.55.52.csv"
