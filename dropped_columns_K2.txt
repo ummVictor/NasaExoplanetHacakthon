@@ -1,7 +1,7 @@
 K2: dropped columns (not used as features)
 
 
-[metadata/IDs/provenance (not model features)] (7):
+[metadata/IDs/provenance] (7):
   - disc_facility
   - disc_year
   - discoverymethod
@@ -10,8 +10,7 @@ K2: dropped columns (not used as features)
   - st_refname
   - sy_refname
 
-[other/unmapped for v1 (consider later)] (69):
-  - decstr
+[other/unmapped for v1] (67):
   - default_flag
   - pl_bmasse
   - pl_bmasseerr1
@@ -46,7 +45,6 @@ K2: dropped columns (not used as features)
   - pl_radjerr1
   - pl_radjerr2
   - pl_radjlim
-  - rastr
   - soltype
   - st_loggerr1
   - st_loggerr2
@@ -81,11 +79,13 @@ K2: dropped columns (not used as features)
   - sy_vmagerr2
   - ttv_flag
 
-[sky coordinates/astrometry (not directly predictive; mission-agnostic)] (2):
+[sky coordinates/astrometry] (4):
   - dec
+  - decstr
   - ra
+  - rastr
 
-[timestamps/metadata (not used as features)] (3):
+[timestamps/metadata] (3):
   - pl_pubdate
   - releasedate
   - rowupdate

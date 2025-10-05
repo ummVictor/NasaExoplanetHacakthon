@@ -1,8 +1,7 @@
 TESS: dropped columns (not used as features)
 
 
-[other/unmapped for v1 (consider later)] (40):
-  - decstr
+[other/unmapped for v1] (38):
   - pl_eqterr1
   - pl_eqterr2
   - pl_eqtlim
@@ -15,7 +14,6 @@ TESS: dropped columns (not used as features)
   - pl_radeerr1
   - pl_radeerr2
   - pl_radelim
-  - rastr
   - st_dist
   - st_disterr1
   - st_disterr2
@@ -43,7 +41,7 @@ TESS: dropped columns (not used as features)
   - st_tmaglim
   - toi_created
 
-[redundant/alternate encoding (normalized into unified columns)] (9):
+[redundant/alternate encoding] (9):
   - pl_trandeperr1
   - pl_trandeperr2
   - pl_trandeplim
@@ -54,11 +52,13 @@ TESS: dropped columns (not used as features)
   - pl_tranmiderr2
   - pl_tranmidlim
 
-[sky coordinates/astrometry (not directly predictive; mission-agnostic)] (2):
+[sky coordinates/astrometry] (4):
   - dec
+  - decstr
   - ra
+  - rastr
 
-[timestamps/metadata (not used as features)] (1):
+[timestamps/metadata] (1):
   - rowupdate
 
 Present but not chosen (redundant aliases):
