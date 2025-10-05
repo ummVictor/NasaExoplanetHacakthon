@@ -1,0 +1,42 @@
+KEPLER: dropped columns (not used as features)
+
+
+[metadata/IDs/provenance (not model features)] (1):
+  - koi_tce_delivname
+
+[other/unmapped for v1 (consider later)] (3):
+  - koi_kepmag
+  - koi_score
+  - koi_tce_plnt_num
+
+[sky coordinates/astrometry (not directly predictive; mission-agnostic)] (2):
+  - dec
+  - ra
+
+[uncertainty/limits (excluded for baseline; optionally add later)] (22):
+  - koi_depth_err1
+  - koi_depth_err2
+  - koi_duration_err1
+  - koi_duration_err2
+  - koi_impact_err1
+  - koi_impact_err2
+  - koi_insol_err1
+  - koi_insol_err2
+  - koi_period_err1
+  - koi_period_err2
+  - koi_prad_err1
+  - koi_prad_err2
+  - koi_slogg_err1
+  - koi_slogg_err2
+  - koi_srad_err1
+  - koi_srad_err2
+  - koi_steff_err1
+  - koi_steff_err2
+  - koi_teq_err1
+  - koi_teq_err2
+  - koi_time0bk_err1
+  - koi_time0bk_err2
+
+Present but not chosen (redundant aliases):
+  - object_id: kepler_name, kepoi_name
+  - source_id_raw: kepler_name, kepoi_name

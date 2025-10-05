@@ -1,0 +1,66 @@
+TESS: dropped columns (not used as features)
+
+
+[other/unmapped for v1 (consider later)] (40):
+  - decstr
+  - pl_eqterr1
+  - pl_eqterr2
+  - pl_eqtlim
+  - pl_insolerr1
+  - pl_insolerr2
+  - pl_insollim
+  - pl_orbpererr1
+  - pl_orbpererr2
+  - pl_orbperlim
+  - pl_radeerr1
+  - pl_radeerr2
+  - pl_radelim
+  - rastr
+  - st_dist
+  - st_disterr1
+  - st_disterr2
+  - st_distlim
+  - st_loggerr1
+  - st_loggerr2
+  - st_logglim
+  - st_pmdec
+  - st_pmdecerr1
+  - st_pmdecerr2
+  - st_pmdeclim
+  - st_pmra
+  - st_pmraerr1
+  - st_pmraerr2
+  - st_pmralim
+  - st_raderr1
+  - st_raderr2
+  - st_radlim
+  - st_tefferr1
+  - st_tefferr2
+  - st_tefflim
+  - st_tmag
+  - st_tmagerr1
+  - st_tmagerr2
+  - st_tmaglim
+  - toi_created
+
+[redundant/alternate encoding (normalized into unified columns)] (9):
+  - pl_trandeperr1
+  - pl_trandeperr2
+  - pl_trandeplim
+  - pl_trandurherr1
+  - pl_trandurherr2
+  - pl_trandurhlim
+  - pl_tranmiderr1
+  - pl_tranmiderr2
+  - pl_tranmidlim
+
+[sky coordinates/astrometry (not directly predictive; mission-agnostic)] (2):
+  - dec
+  - ra
+
+[timestamps/metadata (not used as features)] (1):
+  - rowupdate
+
+Present but not chosen (redundant aliases):
+  - object_id: tid
+  - source_id_raw: tid

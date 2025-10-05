@@ -1,0 +1,50 @@
+Mission counts:
+mission
+KEPLER    9564
+TESS      7241
+K2        4004
+Name: count, dtype: int64
+
+Class counts (1=planet/PC, 0=FP):
+label
+1    14360
+0     6449
+Name: count, dtype: int64
+
+Top 20 columns by missingness:
+ror              1.000000
+a_over_rstar     1.000000
+mes              1.000000
+a_au             0.960978
+feh_dex          0.918737
+mass_msun        0.899611
+snr              0.557836
+impact           0.557836
+fpflag_ss        0.540391
+fpflag_nt        0.540391
+fpflag_ec        0.540391
+fpflag_co        0.540391
+depth_ppm        0.209861
+epoch_bjd_raw    0.192417
+dur_h            0.192417
+insol_earth      0.185593
+teq_k            0.182277
+logg_cgs         0.134845
+prad_re          0.080590
+teff_k           0.078956
+dtype: float64
+
+Highly correlated pairs (|r|>=0.90): 1 total. Top 30:
+period_d ↔ a_au: r=0.950
+
+---
+FEATURE SELECTION & RATIONALE (summary)
+
+Kept unified features:
+mission, object_id, source_id_raw, label, period_d, dur_h, depth_ppm, impact, ror, prad_re, a_au, a_over_rstar, insol_earth, teq_k, teff_k, logg_cgs, radius_rsun, mass_msun, feh_dex, mes, snr, fpflag_nt, fpflag_ss, fpflag_co, fpflag_ec, epoch_bjd_raw
+KEPLER: used 17 source cols for features, 2 for label-only, 4 present-but-not-chosen aliases, out of 49 total columns.
+K2: used 11 source cols for features, 1 for label-only, 2 present-but-not-chosen aliases, out of 94 total columns.
+TESS: used 11 source cols for features, 1 for label-only, 2 present-but-not-chosen aliases, out of 65 total columns.
+
+See detailed explanations in: unified_feature_rationale.md
+Full dropped-column lists per dataset are in the corresponding 'dropped_columns_*.txt' files.
