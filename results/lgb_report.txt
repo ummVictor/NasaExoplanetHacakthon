@@ -1,0 +1,9 @@
+LightGBM OOF metrics (StratifiedKFold, K=10)
+Accuracy: 0.9267
+Precision: 0.9276
+Recall: 0.9607
+F1 Score: 0.9439
+ROC AUC: 0.9691
+PR AUC: 0.9788
+Confusion Matrix [TN, FP, FN, TP]: [5355, 830, 435, 10641]
+Positives: 11076  Negatives: 6185
