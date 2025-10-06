@@ -1,0 +1,9 @@
+AdaBoost OOF metrics (StratifiedKFold, K=10)
+Accuracy: 0.9227
+Precision: 0.9134
+Recall: 0.9717
+F1 Score: 0.9416
+ROC AUC: 0.9647
+PR AUC: 0.9755
+Confusion Matrix [TN, FP, FN, TP]: [5165, 1020, 314, 10762]
+Positives: 11076  Negatives: 6185

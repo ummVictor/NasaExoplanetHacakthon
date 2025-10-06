@@ -1,0 +1,9 @@
+RandomForest OOF metrics (StratifiedKFold, K=10)
+Accuracy: 0.9262
+Precision: 0.9131
+Recall: 0.9781
+F1 Score: 0.9445
+ROC AUC: 0.9703
+PR AUC: 0.9797
+Confusion Matrix [TN, FP, FN, TP]: [5154, 1031, 243, 10833]
+Positives: 11076  Negatives: 6185

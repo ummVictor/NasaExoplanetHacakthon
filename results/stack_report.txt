@@ -1,0 +1,9 @@
+StackingClassifier OOF metrics (StratifiedKFold, K=5)
+Accuracy: 0.9127
+Precision: 0.8836
+Recall: 0.9950
+F1 Score: 0.9360
+ROC AUC: 0.9673
+PR AUC: 0.9774
+Confusion Matrix [TN, FP, FN, TP]: [4733, 1452, 55, 11021]
+Positives: 11076  Negatives: 6185
