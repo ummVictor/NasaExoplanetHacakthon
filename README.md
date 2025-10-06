@@ -14,6 +14,73 @@ The project addresses the core challenge of **scalable, automated exoplanet vett
 
 ---
 
+## Quick Start
+
+### Prerequisites
+- Python 3.11+
+- Node.js 16+ (for web application)
+- Git
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd NasaExoplanetHacakthon
+   ```
+
+2. **Set up Python environment:**
+   ```bash
+   # Create virtual environment
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   
+   # Install Python dependencies
+   pip install -r webapp/backend/requirements.txt
+   ```
+
+3. **Set up the web application:**
+   ```bash
+   cd webapp
+   npm install
+   ```
+
+### Running the Application
+
+1. **Start the backend server:**
+   ```bash
+   cd webapp/backend
+   python main.py
+   ```
+   The API will be available at `http://localhost:8000`
+
+2. **Start the frontend (in a new terminal):**
+   ```bash
+   cd webapp
+   npm start
+   ```
+   The web application will open at `http://localhost:3000`
+
+### Using the Models
+
+- Open `http://localhost:3000` in your browser
+- Select a model (LightGBM, AdaBoost, Random Forest, or Stacking)
+- Input exoplanet parameters
+- Get real-time predictions with confidence scores and feature importance
+
+### Available Models
+- **LightGBM**
+- **AdaBoost**  
+- **Random Forest**
+- **Stacking Classifier**
+
+### Data Files
+- Preprocessed data: `preprocessed_data_clean.csv`
+- Trained models: `Models/` directory
+- Original NASA datasets: `original NASA dataset/` directory
+
+---
+
 ## Goal
 
 Develop a unified, reproducible machine learning framework that:
