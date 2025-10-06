@@ -15,7 +15,7 @@ export default function PredictPage() {
 
   const adjustClassificationByConfidence = (classification, confidenceScore) => {
     if (confidenceScore < confidenceThreshold) {
-      return "False Positive";
+      return "Uncertain";
     }
     return classification;
   };
@@ -41,59 +41,30 @@ export default function PredictPage() {
             })
           });
 
-          if (response.ok) {
-            const backendResult = await response.json();
-            const adjustedClassification = adjustClassificationByConfidence(
-              backendResult.classification, 
-              backendResult.confidence_score
-            );
-            predictionData = {
-              ...params,
-              classification: adjustedClassification,
-              confidence_score: backendResult.confidence_score,
-              feature_importance: backendResult.feature_importance,
-              prediction_reasoning: `ML Model (${selectedModel}): ${adjustedClassification} with ${backendResult.confidence_score.toFixed(1)}% confidence (threshold: ${confidenceThreshold}%)`,
-              source: "manual",
-              model_used: selectedModel
-            };
+            if (response.ok) {
+              const backendResult = await response.json();
+              const adjustedClassification = adjustClassificationByConfidence(
+                backendResult.classification, 
+                backendResult.confidence_score
+              );
+              predictionData = {
+                ...params,
+                classification: adjustedClassification,
+                confidence_score: backendResult.confidence_score,
+                feature_importance: backendResult.feature_importance,
+                prediction_reasoning: `ML Model (${selectedModel}): ${adjustedClassification} with ${backendResult.confidence_score.toFixed(1)}% confidence (threshold: ${confidenceThreshold}%)`,
+                source: "manual",
+                model_used: selectedModel
+              };
           } else {
             throw new Error('Backend not available');
           }
         } catch (error) {
-          console.log('Backend not available, using rule-based classification');
-          // Fall back to rule-based classification
-          const classification = classifyExoplanet(params);
-          const confidence = calculateConfidence(params, classification);
-          const adjustedClassification = adjustClassificationByConfidence(classification, confidence);
-          const featureImportance = {}; // No fallback - only from ML models
-          const reasoning = generateReasoning(params, adjustedClassification);
-
-          predictionData = {
-            ...params,
-            classification: adjustedClassification,
-            confidence_score: confidence,
-            feature_importance: featureImportance,
-            prediction_reasoning: `Rule-based: ${reasoning} (threshold: ${confidenceThreshold}%)`,
-            source: "manual",
-            model_used: 'rule-based'
-          };
+          console.error('Backend error:', error);
+          throw new Error('Backend not available - ML models required');
         }
       } else {
-        // Use rule-based classification
-        const classification = classifyExoplanet(params);
-        const confidence = calculateConfidence(params, classification);
-        const featureImportance = {}; // No fallback - only from ML models
-        const reasoning = generateReasoning(params, classification);
-
-        predictionData = {
-          ...params,
-          classification,
-          confidence_score: confidence,
-          feature_importance: featureImportance,
-          prediction_reasoning: `Rule-based: ${reasoning}`,
-          source: "manual",
-          model_used: 'rule-based'
-        };
+        throw new Error('Backend required - no fallback available');
       }
 
       // No need to store predictions since history is removed
@@ -261,18 +232,12 @@ export default function PredictPage() {
                 <h3 className="dark:text-white text-slate-900 text-lg font-semibold">
                   Confidence Threshold
                 </h3>
-                <p className="dark:text-slate-400 text-slate-600 text-sm mt-1">
-                  Adjust the minimum confidence required for "Confirmed" classification
-                </p>
               </div>
               <div className="p-6">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="dark:text-slate-300 text-slate-700 font-medium">
                       Threshold: {confidenceThreshold}%
-                    </span>
-                    <span className="text-sm dark:text-slate-500 text-slate-500">
-                      Below this = False Positive
                     </span>
                   </div>
                   <input

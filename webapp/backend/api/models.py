@@ -6,7 +6,7 @@ router = APIRouter()
 @router.get("/info")
 async def get_model_info():
     """Get information about loaded models"""
-    from api.predictions import models_loaded, models
+    from backend.api.predictions import models_loaded, models
     if not models_loaded:
         raise HTTPException(status_code=503, detail="Models not loaded")
     
@@ -19,7 +19,7 @@ async def get_model_info():
 @router.get("/available")
 async def get_available_models():
     """Get list of available models"""
-    from api.predictions import models_loaded, models
+    from backend.api.predictions import models_loaded, models
     if not models_loaded:
         raise HTTPException(status_code=503, detail="Models not loaded")
     

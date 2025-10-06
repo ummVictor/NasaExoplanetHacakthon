@@ -81,20 +81,30 @@ async def predict_single(request: PredictionRequest):
                 "Confirmed": float(probabilities[1])
             }
         else:
-            # Fallback for unexpected number of classes
-            classification = f"Class_{prediction}"
-            probabilities_dict = {f"Class_{i}": float(prob) for i, prob in enumerate(probabilities)}
+            # Unexpected number of classes - error
+            raise ValueError(f"Unexpected number of classes: {num_classes}")
         
         # Calculate confidence score
         confidence_score = float(np.max(probabilities) * 100)
         
         # Get feature importance from model only
         feature_importance = {}
-        if hasattr(model, 'feature_importances_'):
-            feature_names = df.columns.tolist()
-            feature_importance = dict(zip(feature_names, model.feature_importances_))
-        else:
-            # No fallback - return empty if model doesn't have feature importance
+        try:
+            # Check if it's a pipeline with a classifier
+            if hasattr(model, 'named_steps') and 'clf' in model.named_steps:
+                clf = model.named_steps['clf']
+                if hasattr(clf, 'feature_importances_'):
+                    feature_names = df.columns.tolist()
+                    feature_importance = dict(zip(feature_names, clf.feature_importances_))
+            # Check if it's a direct classifier
+            elif hasattr(model, 'feature_importances_'):
+                feature_names = df.columns.tolist()
+                feature_importance = dict(zip(feature_names, model.feature_importances_))
+            else:
+                # No fallback - return empty if model doesn't have feature importance
+                feature_importance = {}
+        except Exception as e:
+            print(f"Error extracting feature importance: {e}")
             feature_importance = {}
         
         # Generate reasoning
@@ -148,9 +158,20 @@ async def predict_batch(request: BatchPredictionRequest):
 
             # Get feature importance from model only
             feature_importance = {}
-            if hasattr(model, 'feature_importances_'):
-                feature_names = df.columns.tolist()
-                feature_importance = dict(zip(feature_names, model.feature_importances_))
+            try:
+                # Check if it's a pipeline with a classifier
+                if hasattr(model, 'named_steps') and 'clf' in model.named_steps:
+                    clf = model.named_steps['clf']
+                    if hasattr(clf, 'feature_importances_'):
+                        feature_names = df.columns.tolist()
+                        feature_importance = dict(zip(feature_names, clf.feature_importances_))
+                # Check if it's a direct classifier
+                elif hasattr(model, 'feature_importances_'):
+                    feature_names = df.columns.tolist()
+                    feature_importance = dict(zip(feature_names, model.feature_importances_))
+            except Exception as e:
+                print(f"Error extracting feature importance: {e}")
+                feature_importance = {}
 
             reasoning = generate_prediction_reasoning({
                 "classification": classification,

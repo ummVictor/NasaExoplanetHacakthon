@@ -9,8 +9,8 @@ from typing import Dict, List, Optional
 import os
 from pathlib import Path
 
-from api.predictions import router as predictions_router, load_models as load_prediction_models
-from api.models import router as models_router
+from backend.api.predictions import router as predictions_router, load_models as load_prediction_models
+from backend.api.models import router as models_router
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -44,7 +44,7 @@ async def root():
 
 @app.get("/health")
 async def health_check():
-    from api.predictions import models_loaded, models
+    from backend.api.predictions import models_loaded, models
     return {
         "status": "healthy",
         "models_loaded": models_loaded,

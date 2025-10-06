@@ -17,12 +17,12 @@ const defaultValues = {
   radius_rsun: 1.0,
   mass_msun: 1.0,
   feh_dex: 0.0,
-  mes: 3.0,
-  snr: 2.5,
-  fpflag_nt: 1,
-  fpflag_ss: 1,
-  fpflag_co: 1,
-  fpflag_ec: 1
+  mes: 15.0,        // High MES - above detection threshold
+  snr: 15.3,        // High SNR - good signal quality
+  fpflag_nt: 0,     // Not flagged as non-transit
+  fpflag_ss: 0,     // No stellar system issues
+  fpflag_co: 0,     // No contamination
+  fpflag_ec: 0      // Not an eclipsing binary
 };
 
 export default function ParameterForm({ onSubmit, isProcessing }) {
@@ -84,20 +84,22 @@ export default function ParameterForm({ onSubmit, isProcessing }) {
         </h3>
       </div>
       <div className="p-6">
-        <form onSubmit={handleSubmit} className="space-y-4">
-          {parameters.map(param => (
-            <div key={param.key} className="space-y-2">
-              <label className="dark:text-slate-300 text-slate-700 font-medium block">
-                {param.label} {param.unit && <span className="dark:text-slate-500 text-slate-500">({param.unit})</span>}
-              </label>
-              <input
-                type="number"
-                value={params[param.key]}
-                onChange={(e) => handleChange(param.key, e.target.value)}
-                className="w-full px-3 py-2 rounded-lg dark:bg-slate-900/50 bg-slate-50 dark:border-slate-600 border-slate-300 dark:text-white text-slate-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-              />
-            </div>
-          ))}
+        <form onSubmit={handleSubmit}>
+          <div className="max-h-96 overflow-y-auto pr-2 space-y-4 mb-6">
+            {parameters.map(param => (
+              <div key={param.key} className="space-y-2">
+                <label className="dark:text-slate-300 text-slate-700 font-medium block">
+                  {param.label} {param.unit && <span className="dark:text-slate-500 text-slate-500">({param.unit})</span>}
+                </label>
+                <input
+                  type="number"
+                  value={params[param.key]}
+                  onChange={(e) => handleChange(param.key, e.target.value)}
+                  className="w-full px-3 py-2 rounded-lg dark:bg-slate-900/50 bg-slate-50 dark:border-slate-600 border-slate-300 dark:text-white text-slate-900 focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                />
+              </div>
+            ))}
+          </div>
 
           <button
             type="submit"
