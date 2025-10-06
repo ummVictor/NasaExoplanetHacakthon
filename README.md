@@ -64,7 +64,7 @@ The project addresses the core challenge of **scalable, automated exoplanet vett
 ### Using the Models
 
 - Open `http://localhost:3000` in your browser
-- Select a model (LightGBM, AdaBoost, Random Forest, or Stacking)
+- Select a model
 - Input exoplanet parameters
 - Get real-time predictions with confidence scores and feature importance
 
