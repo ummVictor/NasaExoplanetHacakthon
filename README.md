@@ -88,14 +88,6 @@ This work supports NASA’s broader mission by helping astronomers **automate ca
 
 ---
 
-## Future Work
-
-- Integrate **deep learning** for feature extraction from light curves  
-- Add **explainable AI (XAI)** modules for interpretability  
-- Deploy an **interactive web interface** for real-time classification and visualization  
-
----
-
 ## Team
 
 **CODELOCK** was created by:  
