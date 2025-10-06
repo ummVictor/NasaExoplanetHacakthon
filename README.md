@@ -5,7 +5,7 @@ NASA Space Apps Challenge 2025
 
 ---
 
-## 🚀 Project Overview
+## Project Overview
 
 **CODELOCK** is a machine learning pipeline designed to accurately identify exoplanet candidates across NASA’s **Kepler**, **K2**, and **TESS** missions.  
 By unifying data from multiple space telescopes and combining classical and ensemble learning methods, our system distinguishes real exoplanets from false positives with high precision and recall.  
@@ -14,7 +14,7 @@ The project addresses the core challenge of **scalable, automated exoplanet vett
 
 ---
 
-## 🎯 Goal
+## Goal
 
 Develop a unified, reproducible machine learning framework that:
 - Integrates NASA’s open-source Kepler, K2, and TESS datasets  
@@ -24,23 +24,23 @@ Develop a unified, reproducible machine learning framework that:
 
 ---
 
-## 🧠 Methodology
+##  Methodology
 
-### **1️⃣ Preprocessing**
+### **1. Preprocessing**
 - Cleaned raw mission data by removing empty, duplicated, and non-predictive fields  
 - Standardized measurement units (e.g., converting all transit depths to ppm)  
 - Normalized and scaled numeric features across all missions  
 - Handled missing values through targeted imputation  
 - Guarded against label leakage by removing disposition-related columns  
 
-### **2️⃣ Data Integration & Cleaning**
+### **2. Data Integration & Cleaning**
 - Merged Kepler, K2, and TESS datasets into a single standardized table (~17,000 entries)  
 - Unified equivalent feature names across missions (e.g., `koi_period`, `pl_orbper` → `period_d`)  
 - Dropped redundant, astrometric, or uncertainty columns (>95% missing)  
 - Converted Kepler epochs (BKJD) into Barycentric Julian Date (BJD) for consistency  
 - Created a cross-mission label: `1 = confirmed/candidate`, `0 = false positive`
 
-### **3️⃣ Modeling & Evaluation**
+### **3. Modeling & Evaluation**
 We compared and optimized multiple ensemble-based models:
 - **LightGBM (Gradient Boosted Trees)** — fast, interpretable baseline  
 - **AdaBoost** — strong recall and adaptive weighting  
@@ -52,7 +52,7 @@ All models were evaluated using **10-fold cross-validation** with metrics:
 
 ---
 
-## 📊 Results
+## Results
 
 | Model | Accuracy | Recall | Precision | F1 | ROC-AUC | Highlights |
 |:------|:----------|:--------|:------------|:----|:----------|:------------|
@@ -67,7 +67,7 @@ The **StackingClassifier** achieved near-perfect recall, making it ideal when mi
 
 ---
 
-## 💡 Conclusion
+## Conclusion
 
 CODELOCK successfully demonstrates that ensemble-based machine learning can:
 - Improve exoplanet detection accuracy and recall  
@@ -78,7 +78,7 @@ This work supports NASA’s broader mission by helping astronomers **automate ca
 
 ---
 
-## 🧩 Tech Stack
+## Tech Stack
 
 - **Python 3.11+**  
 - Libraries: `pandas`, `numpy`, `scikit-learn`, `lightgbm`, `xgboost`, `matplotlib`  
@@ -88,7 +88,7 @@ This work supports NASA’s broader mission by helping astronomers **automate ca
 
 ---
 
-## 📚 Future Work
+## Future Work
 
 - Integrate **deep learning** for feature extraction from light curves  
 - Add **explainable AI (XAI)** modules for interpretability  
@@ -96,7 +96,7 @@ This work supports NASA’s broader mission by helping astronomers **automate ca
 
 ---
 
-## 🪐 Team
+## Team
 
 **CODELOCK** was created by:  
 - **Martin Ha**  
