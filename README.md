@@ -1,4 +1,4 @@
-# 🌌 CODELOCK  
+# CODELOCK  
 **Machine Learning for Automated Exoplanet Detection**  
 *By Martin Ha, Victor Um, and Christina Mourad*  
 NASA Space Apps Challenge 2025  
